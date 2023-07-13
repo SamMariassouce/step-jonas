@@ -15,15 +15,17 @@ export default function App() {
   const [isOpen, setIsOpen] = useState(true);
 
   function handlePrevious() {
-    if (step > 1) setStep(step - 1);
+    if (step > 1) setStep((s) => s - 1);
+    // setStep(s - 1);
   }
   function handleNext() {
-    if (step < 3) setStep(step + 1);
+    if (step < 3) setStep((s) => s + 1);
+    //setStep(s + 1);
   }
   return (
     <>
       {/*  function written inside the event instead of creating const handle close.. */}
-      <button className="close" onClick={() => setIsOpen(!isOpen)}>
+      <button className="close" onClick={() => setIsOpen((is) => !is)}>
         &times;
       </button>
       {isOpen && (
@@ -33,7 +35,6 @@ export default function App() {
             <div className={step >= 2 ? 'active' : ''}>2</div>
             <div className={step >= 3 ? 'active' : ''}>3</div>
           </div>
-
           <p className="message">
             Step {step}: {messages[step - 1]}
           </p>
@@ -50,7 +51,7 @@ export default function App() {
             >
               Next
             </button>
-          </div>
+          </div>{' '}
         </div>
       )}
     </>
