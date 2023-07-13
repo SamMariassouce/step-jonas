@@ -21,7 +21,7 @@ export default function App() {
     if (step < 3) setStep(step + 1);
   }
   return (
-    <div>
+    <>
       {/*  function written inside the event instead of creating const handle close.. */}
       <button className="close" onClick={() => setIsOpen(!isOpen)}>
         &times;
@@ -53,6 +53,6 @@ export default function App() {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
